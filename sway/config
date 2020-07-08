@@ -19,7 +19,7 @@ set $right l
 set $term gnome-terminal
 
 #lock
-set $lock /home/akarshan/.config/sway/scripts/lock.sh
+set $lock ~/.config/sway/scripts/lock.sh
 
 
 
@@ -32,7 +32,7 @@ set $menu dmenu_path | wofi --show drun -i | xargs swaymsg exec --
 
 
 
-#set $background /home/akarshan/Pictures/BingWallpapers/20200705.jpg -- set if azote not installed
+#set $background ~/Pictures/BingWallpapers/20200705.jpg -- set if azote not installed
 include /etc/sway/config.d/*
-include /home/akarshan/.config/sway/conf.d/*
+include ~/.config/sway/conf.d/*
 
