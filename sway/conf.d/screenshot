@@ -1,0 +1,2 @@
+bindsym $mod+Print exec 'grim /tmp/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png'
+bindsym Shift+Print exec 'slurp | grim -g - /tmp/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png'

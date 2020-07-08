@@ -1,0 +1,38 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Your preferred terminal emulator
+set $term gnome-terminal
+
+#lock
+set $lock /home/akarshan/.config/sway/scripts/lock.sh
+
+
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu dmenu_path | wofi --show drun -i | xargs swaymsg exec --
+
+
+
+
+#set $background /home/akarshan/Pictures/BingWallpapers/20200705.jpg -- set if azote not installed
+include /etc/sway/config.d/*
+include /home/akarshan/.config/sway/conf.d/*
+

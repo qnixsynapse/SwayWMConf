@@ -1,0 +1,102 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["tray", "custom/ibus", "temperature", "custom/weather", "custom/storage", "backlight", "pulseaudio", "network", "battery", "clock"],
+    "sway/mode": {
+        "format": " {}"
+    },
+    "sway/workspaces": {
+        "format": "{name}",
+        "disable-scroll": true
+    },
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %d %b %I:%M %p}",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}%",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 12
+        },
+        "tooltip": false
+    },
+    "network": {
+                "format": "{ipaddr}",
+                "format-wifi": "{essid}:{ipaddr}  ({signalStrength}%) ",
+                "format-ethernet": "{ipaddr}/{cidr} ",
+                "format-disconnected": "", 
+                "tooltip-format": "{ifname}",
+                "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+                "tooltip-format-ethernet": "{ifname} ",
+                "tooltip-format-disconnected": "Disconnected",
+                "max-length": 50,
+                "on-click": "gnome-terminal -e nmtui",
+                "tooltip": false
+    },
+    "pulseaudio": {
+                "format": "{volume}% {icon}",
+                "format-bluetooth": "{volume}% {icon}",
+                "format-muted": "",
+                "format-icons": {
+                     "headphones": "",
+                     "handsfree": "",
+                     "headset": "",
+                     "phone": "",
+                     "portable": "",
+                     "car": "",
+                     "default": ["", ""]
+                },
+                "scroll-step": 1,
+                "on-click": "pavucontrol"
+           },
+    "custom/storage": {
+        "format": "{} ",
+        "format-alt": "{percentage}% ",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/modules/storage.sh"
+    },
+    "backlight": {
+        "format": " {icon}: {percent}%",
+        "format-icons": [""],
+        "on-scroll-down": "brightnessctl set 5%-",
+        "on-scroll-up": "brightnessctl set +5%"
+    },
+    "temperature": {
+                  "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+                  "input-filename": "temp1_input",
+                  "critical-threshold": 80,
+                  "format-critical": "{temperatureC}°C ",
+                  "format": "{temperatureC}°C "
+  },
+  "custom/weather": {
+        "format": "{alt}: {}",
+        "interval": 1800,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/weather.sh",
+        "exec-if": "ping wttr.in -c1"
+    },
+    "custom/ibus": {
+        "format": " {}",
+        "exec": "~/.config/waybar/modules/ibus-manager.sh",
+        "on-click": "~/.config/waybar/modules/ibus-manager.sh toggle"
+     },
+         
+    "tray": {
+        "icon-size": 14
+    }
+}

@@ -1,0 +1,9 @@
+# Auto start configurations
+
+#Add mako and Redshift here
+
+
+
+#Sway startup apps
+exec mako
+exec redshift -m wayland
